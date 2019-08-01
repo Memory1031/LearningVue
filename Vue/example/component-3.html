@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Component 父子组件关系</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>Component 父子组件关系</h1>
+    <hr>
+    <div id="app">
+        <panda></panda>
+    </div>
+
+    <script type="text/javascript">
+        //在外面申明局部组建
+        var city = {
+            template:`<div style="color:green;">Shanghai of China</div>`
+        };
+        var pandaComponent = {
+            template:`<div style="color:red;">
+                           <p>Panda from China</p>
+                           <city></city>
+                      </div>`,
+            components:{
+                "city": city
+            }
+        };
+        var app = new Vue({
+            el:'#app',
+            components:{
+                "panda": pandaComponent
+            }
+        });
+    </script>
+</body>
+</html>

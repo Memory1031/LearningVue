@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>propsData Option</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+    <h1>propsData Option</h1>
+    <hr>
+    <header></header>
+
+    <script type="text/javascript">
+        //用propsData三步解决传值： 1.在全局扩展里加入props进行接收。propsData:{a:1} 2.传递时用propsData进行传递。props:[‘a’] 3.用插值的形式写入模板。
+        var header_a = Vue.extend({
+            template:`<p>{{message}} -- {{a}}</p>`,
+            data:function(){
+                return{
+                    message:'Hello, I am header'
+               }
+            },
+            props:['a']
+        });
+        //挂载
+        new header_a({propsData: {a:1}}).$mount('header');
+    </script>
+</body>
+</html>
